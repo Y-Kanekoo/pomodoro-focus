@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pomodoro Focus
 
-## Getting Started
+集中力を高めるポモドーロタイマーアプリ。美しいUI/UXで生産性を最大化しましょう。
 
-First, run the development server:
+## 機能
+
+- **ポモドーロテクニック**: 25分の集中 + 5分の休憩サイクル
+- **カスタマイズ可能**: 集中時間、休憩時間を自由に設定
+- **統計機能**: 今日の集中セッション数、合計時間を記録
+- **ダークモード**: システム設定に連動した自動切り替え
+- **PWA対応**: ホーム画面に追加してネイティブアプリのように使用可能
+- **オフライン対応**: インターネット接続なしでも使用可能
+- **通知音**: セッション終了時にお知らせ
+
+## 技術スタック
+
+- **フレームワーク**: Next.js 15 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS
+- **データ永続化**: LocalStorage
+
+## セットアップ
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# ビルド
+npm run build
+
+# 本番サーバーの起動
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 広告設定
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+広告収入を得るには、`src/components/features/AdBanner.tsx` の `GoogleAdBanner` コンポーネントを使用し、Google AdSenseのクライアントIDとスロットIDを設定してください。
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```tsx
+<GoogleAdBanner
+  client="ca-pub-XXXXXXXXXXXXXXXX"
+  slot="XXXXXXXXXX"
+/>
+```
 
-## Learn More
+## デプロイ
 
-To learn more about Next.js, take a look at the following resources:
+Vercelを使用して簡単にデプロイできます:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/Y-Kanekoo/pomodoro-focus)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ライセンス
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License
