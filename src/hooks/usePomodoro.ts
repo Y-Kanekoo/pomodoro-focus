@@ -58,12 +58,8 @@ export function usePomodoro() {
     [settings]
   );
 
-  // 設定変更時にタイマーをリセット
-  useEffect(() => {
-    if (status === 'idle') {
-      setTimeLeft(getDurationForMode(mode));
-    }
-  }, [settings, mode, status, getDurationForMode]);
+  // 待機中は最新の設定時間を表示
+  const displayedTimeLeft = status === 'idle' ? getDurationForMode(mode) : timeLeft;
 
   // 通知音を再生
   const playSound = useCallback(() => {
@@ -211,8 +207,11 @@ export function usePomodoro() {
 
   // タイマーを開始
   const start = useCallback(() => {
+    if (status === 'idle') {
+      setTimeLeft(getDurationForMode(mode));
+    }
     setStatus('running');
-  }, []);
+  }, [status, mode, getDurationForMode]);
 
   // タイマーを一時停止
   const pause = useCallback(() => {
@@ -265,7 +264,7 @@ export function usePomodoro() {
     // 状態
     mode,
     status,
-    timeLeft,
+    timeLeft: displayedTimeLeft,
     sessionsCompleted,
     settings,
     sessions,
