@@ -14,7 +14,7 @@
 
 ## 技術スタック
 
-- **フレームワーク**: Next.js 15 (App Router)
+- **フレームワーク**: Next.js 16.1.1 (App Router)
 - **言語**: TypeScript
 - **スタイリング**: Tailwind CSS
 - **データ永続化**: LocalStorage
